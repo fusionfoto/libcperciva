@@ -9,5 +9,8 @@ scenario_cmd() {
 	setup_check_variables
 	cd ${scriptdir}/mpool && c_valgrind_cmd=${c_valgrind_cmd} \
 	    ./test_mpool.sh 1> ${test_output}
+
+	echo "zzzzzzz DEBUG" 1>&2
+	cat ${test_output} >&2
 	echo $? > ${c_exitfile}
 }
